@@ -13,9 +13,12 @@ namespace BaconsaleWebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private MovieApplicationContext _blahContext { get; set; }
+
+        public HomeController(ILogger<HomeController> logger, MovieApplicationContext someName)
         {
             _logger = logger;
+            _blahContext = someName;
         }
 
         public IActionResult Index()
@@ -31,6 +34,9 @@ namespace BaconsaleWebApp.Controllers
         [HttpPost]
         public IActionResult Movies(ApplicationResponse ar)
         {
+            _blahContext.Add(ar);
+            _blahContext.SaveChanges();
+
             return View("Confirmation", ar);
         }
 

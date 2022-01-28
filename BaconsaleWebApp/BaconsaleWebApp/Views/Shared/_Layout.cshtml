@@ -8,8 +8,15 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-   <div>
-       @RenderBody()
-   </div>
+    <div>
+        <!--list of links to other pages-->
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Home" asp-action="Movies">New Movie Form</a>
+        <a href="https://baconsale.com/">My Podcasts</a>
+        <br />
+    </div>
+    <div>
+        @RenderBody()
+    </div>
 </body>
 </html>

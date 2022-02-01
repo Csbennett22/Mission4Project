@@ -22,9 +22,11 @@ namespace BaconsaleWebApp.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Category")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Director")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("Edited")
@@ -34,12 +36,15 @@ namespace BaconsaleWebApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(25);
 
                     b.Property<string>("Rating")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Year")

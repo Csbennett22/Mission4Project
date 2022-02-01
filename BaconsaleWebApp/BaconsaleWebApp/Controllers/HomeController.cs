@@ -34,10 +34,19 @@ namespace BaconsaleWebApp.Controllers
         [HttpPost]
         public IActionResult Movies(ApplicationResponse ar)
         {
-            _blahContext.Add(ar);
-            _blahContext.SaveChanges();
 
-            return View("Confirmation", ar);
+            if(ModelState.IsValid)
+            {
+                _blahContext.Add(ar);
+                _blahContext.SaveChanges();
+
+                return View("Confirmation", ar);
+            }
+            else
+            {
+                return View(ar);
+            }
+
         }
 
         public IActionResult Privacy()

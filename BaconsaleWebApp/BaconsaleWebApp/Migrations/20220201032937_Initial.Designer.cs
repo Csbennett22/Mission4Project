@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaconsaleWebApp.Migrations
 {
     [DbContext(typeof(MovieApplicationContext))]
-    [Migration("20220128033413_Initial")]
+    [Migration("20220201032937_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,9 +24,11 @@ namespace BaconsaleWebApp.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Category")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Director")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("Edited")
@@ -36,12 +38,15 @@ namespace BaconsaleWebApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(25);
 
                     b.Property<string>("Rating")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Year")

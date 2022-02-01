@@ -3,12 +3,13 @@
     ViewData["Title"] = "New Movie";
 }
 
-@model BaconsaleWebApp.Models.ApplicationResponse;
+@model BaconsaleWebApp.Models.ApplicationResponse
 
 <h1>New Movies</h1>
 
 <div>
     <form method="post">
+        <div asp-validation-summary="All"></div>
         <label asp-for="Category">Category:</label>
         <select asp-for="Category">
             <option value="Action/Adventure">Action/Adventure</option>
